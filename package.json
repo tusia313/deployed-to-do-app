@@ -1,11 +1,13 @@
 {
   "name": "deployed-to-do-app",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
+    "start": "node ./server/server.js",
+    "client": "cd client && npm start"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  }
 }
