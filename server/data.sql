@@ -14,4 +14,4 @@ CREATE TABLE users (
 );
 -- Data for example 
 INSERT INTO todos (id, user_email, title, progress, date) VALUES
-('0','loskotmarta@gmail.com','Learn to code',95,'01 Oct 2025'),
+('0','loskotmarta@gmail.com','Learn to code',95,'01 Oct 2025');
