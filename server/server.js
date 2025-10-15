@@ -1,6 +1,7 @@
 const PORT = process.env.PORT ?? 8000
 const express = require('express')
 const app = express()
+const pool = require('./db')
 
 // that is routing!
 app.get('/', (req, res) => {
@@ -9,9 +10,10 @@ app.get('/', (req, res) => {
 // get all todos
 app.get('/todos', async (req, res) => {
     try {
-        //await
+        const todos = await pool.query('SELECT * FROM todos')
+        res.json(todos.rows)
     } catch (error) {
-        console.error(error.message)
+        console.error(error)
     }
 })
 

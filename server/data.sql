@@ -1,10 +1,10 @@
-CREATE DATABASE todo_app;
+CREATE DATABASE todoapp;
 
 CREATE TABLE todos (
     id varchar(36) PRIMARY KEY,
     user_email varchar(255),
     title varchar(255),
-    progress int(50),
+    progress int,
     date varchar(505)
 );
 
