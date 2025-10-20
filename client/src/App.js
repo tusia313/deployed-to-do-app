@@ -1,4 +1,5 @@
 import ListHeader from './components/ListHeader'
+import ListItem from './components/ListItem'
 import { useEffect, useState } from 'react'
 
 const App = () => {
@@ -17,11 +18,12 @@ const App = () => {
   useEffect(() => { getData() }, [])
   console.log("Wyświetlam json: ", tasks)
   //sort yasks by date
-  tasks?.sort((a, b) => new Date(a.date) - new Date(b.date)) 
+  const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date)) 
 
   return (
     <div className="app">
       <ListHeader listName={"🎄 December tick list"} />
+      {sortedTasks?.map((task) => <ListItem key={tasks.id} task={task}/>)}
     </div>
   )
 }
