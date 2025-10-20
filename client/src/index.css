@@ -49,9 +49,29 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.list-item p {
-  font-size: 1.2em;
-  color: #555;
+.list-item .info-container {
+  display: flex;
+  /* align-items: center; */
 }
+.list-item .info-container .task-title {
+  font-size: 1.2em;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.list-item .info-container .tick {
+  transform: scale(0.5);
+  margin-right: 1rem;
+}
+.tick-1 {
+  fill:#fff;
+  opacity:0;
+}
+.tick-2 {
+  fill:#231f20;
+}
+
 
 

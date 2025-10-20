@@ -5,7 +5,7 @@ const ListItem = ({ task }) => {
     <li className="list-item">
       <div className="info-container">
         <TickIcon />
-        <p className="task-title">{task.title}</p>
+        <h3 className="task-title">{task.title}</h3>
         <ProgressBar />
       </div>
       <div className='button-container'>
