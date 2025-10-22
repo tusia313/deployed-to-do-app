@@ -1,6 +1,7 @@
 import ListHeader from './components/ListHeader'
 import ListItem from './components/ListItem'
 import { useEffect, useState } from 'react'
+import TreeIcon from './components/TreeIcon'
 
 const App = () => {
   const userEmail = 'loskotmarta@gmail.com'
@@ -18,12 +19,15 @@ const App = () => {
   useEffect(() => { getData() }, [])
   console.log("Wyświetlam json: ", tasks)
   //sort yasks by date
-  const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date)) 
+  const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date))
 
   return (
     <div className="app">
-      <ListHeader listName={"🎄 December tick list"} />
-      {sortedTasks?.map((task) => <ListItem key={tasks.id} task={task}/>)}
+      <div className='header-container'>
+        <TreeIcon />
+        <ListHeader listName={" December tick list"} />
+      </div>
+      {sortedTasks?.map((task) => <ListItem key={tasks.id} task={task} />)}
     </div>
   )
 }
