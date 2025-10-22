@@ -25,7 +25,7 @@ const App = () => {
     <div className="app">
       <div className='header-container'>
         <TreeIcon />
-        <ListHeader listName={" December tick list"} />
+        <ListHeader listName={"December tick list"} />
       </div>
       {sortedTasks?.map((task) => <ListItem key={tasks.id} task={task} />)}
     </div>
