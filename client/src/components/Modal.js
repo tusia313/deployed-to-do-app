@@ -2,7 +2,7 @@ const Modal = () => {
   const handleChange = () => {
     console.log("handlimg changes!")
   }
-  const mode = "edit"
+  const mode = "create"
   return (
     <div className="overlay">
       <div className="modal">

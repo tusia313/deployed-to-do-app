@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => { getData() }, [])
   console.log("Wyświetlam json: ", tasks)
-  //sort yasks by date
+  //sort tasks by date
   const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date))
 
   return (

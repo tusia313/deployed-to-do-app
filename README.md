@@ -20,7 +20,7 @@ Nothing special, just a simple table with rows and interactive buttons. The date
 The popup modal, when You can put Your task, looks like this:
 
 
-!![first page](./img/screen_2.png)
+![first page](./img/screen_2.png)
 
 ## 🍬 Technologies
 
@@ -32,6 +32,8 @@ The popup modal, when You can put Your task, looks like this:
 This little project is part of an amazing Full Stack Developer Course created by  ♥ Ania Kubow ♥. Love this women, her sense of humor and ability to explain hard, code-things in a way that I finally understand. 🏆
 
 ###
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

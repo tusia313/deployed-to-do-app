@@ -66,9 +66,9 @@ body {
   cursor: pointer;
 }
 
-.edit,
-.delete,
-.create,
+.edit:hover,
+.delete:hover,
+.create:hover,
 .signout:hover {
   translate: 1.5px 1.5px;
   box-shadow: 1.5px 1.5px 0 #000000;
@@ -76,9 +76,9 @@ body {
   background: rgb(250, 167, 216);
 }
 
-.edit,
-.delete,
-.create,
+.edit:active,
+.delete:active,
+.create:active,
 .signout:active {
   translate: 3px 3px;
   box-shadow: 0 0 0 #000000;
@@ -145,6 +145,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999
 }
 
 .modal {
@@ -171,9 +172,7 @@ body {
 .modal .form-title-container button {
   position: absolute;
   top: 1rem;
-  /* Odległość od górnej krawędzi modala */
   right: 1rem;
-  /* Odległość od prawej krawędzi modala */
   background: transparent;
   border: none;
   font-size: 1.5rem;
