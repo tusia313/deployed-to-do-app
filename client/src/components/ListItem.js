@@ -9,8 +9,8 @@ const ListItem = ({ task }) => {
         <ProgressBar />
       </div>
       <div className='button-container'>
-        <button className="edit-button">edit</button>
-        <button className="delete-button">delete</button>
+        <button className="edit">edit</button>
+        <button className="delete">delete</button>
       </div>
     </li>
   )
