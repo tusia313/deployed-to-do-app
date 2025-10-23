@@ -6,7 +6,7 @@ const ListHeader = ({ listName }) => {
   }
   return (
     <div className="list-header">
-      {/* dzięki {} listName jest tarktowane jako KOD a nie tekst */}
+      {/* dzięki {} listName jest traktowane jako KOD a nie tekst */}
       <h1>{listName}</h1>
       <h2>{date}</h2>
       <div className="button-container">
