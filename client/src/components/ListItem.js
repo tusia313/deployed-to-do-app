@@ -1,6 +1,6 @@
 import TickIcon from './TickIcon'
 import ProgressBar from './ProgressBar'
-const ListItem = ({ task }) => {
+const ListItem = ({ task}) => {
   return (
     <li className="list-item">
       <div className="info-container">

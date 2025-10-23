@@ -1,9 +1,11 @@
+ import Modal from './Modal'
 const ListHeader = ({ listName }) => {
   const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
   console.log(Date)
   const signOut = () => {
     console.log("signing out")
   }
+
   return (
     <div className="list-header">
       {/* dzięki {} listName jest traktowane jako KOD a nie tekst */}
@@ -13,6 +15,7 @@ const ListHeader = ({ listName }) => {
         <button className="create">add new</button>
         <button className="signout" onClick={signOut}>sign out</button>
       </div>
+        <Modal />
     </div>
   )
 }

@@ -1,17 +1,19 @@
 const Modal = () => {
-  const mode = "add"
+  const handleChange = () => {
+    console.log("handlimg changes!")
+  }
+  const mode = "edit"
   return (
-    <div className="modal">
-      <div className="overlay">
+    <div className="overlay">
+      <div className="modal">
         <div className="form-title-container">
           <h2>Let's {mode} some task!</h2>
           <button>x</button>
         </div>
-
         <form>
           <input
             required
-            maxLength={60}
+            maxLength={30}
             placeholder="you're task goes here..."
             name="title"
             value={""}
@@ -26,11 +28,10 @@ const Modal = () => {
             onChange={handleChange}
           />
           <input
+            className={mode}
             type="submit"
-            className= {mode}
           />
         </form>
-
       </div>
     </div>
   )
