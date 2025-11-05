@@ -18,7 +18,7 @@ const [showModal, setShowModal] = useState(false)
         <button className="signout" onClick={signOut}>sign out</button>
       </div>
       {/* if showModal is true then we can see the whole modal */}
-      {showModal && <Modal modal={'create'} setShowModal={setShowModal}/>}
+      {showModal && <Modal mode={'create'} setShowModal={setShowModal}/>}
     </div>
   )
 }
