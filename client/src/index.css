@@ -1,3 +1,8 @@
+:root {
+--color1: rgba(255, 95, 95, 1);   /* jasna, ciepła czerwień */
+--color2: rgba(100, 200, 120, 1); /* miękka zieleń, taka „choinkowa” ale delikatna */
+--color3: rgba(255, 240, 200, 1); /* kremowo-złoty odcień, zamiast intensywnego złota */
+}
 html,
 body {
   height: 100%;
@@ -12,19 +17,19 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  --color: rgb(74, 222, 128);
+  --color: var(--color2);
   background: linear-gradient(45deg, var(--color) 25%, transparent 25%) -50px 0,
     linear-gradient(-45deg, var(--color) 25%, transparent 25%) -50px 0,
     linear-gradient(45deg, transparent 75%, var(--color) 75%) -50px 0,
     linear-gradient(-45deg, transparent 75%, var(--color) 75%) -50px 0;
-  background-color: rgba(255, 102, 163, 1);
+  background-color: var(--color3);
   background-size: 2.4rem 10rem;
 }
 
 .app {
   width: 70vw;
   margin: -0.5rem 0 0 -0.5rem;
-  background: rgb(255, 102, 163);
+  background: var(--color3);
   border: 3px solid #000000;
   box-shadow: 0.8rem 0.8rem 0 #000000;
   overflow: hidden;
@@ -51,6 +56,10 @@ body {
   justify-content: space-around;
   padding-right: 1rem;
 }
+.button-container button .create, 
+.button-container button.signout {
+  background: var(--color3) !important;
+}
 
 .edit,
 .delete,
@@ -61,7 +70,7 @@ body {
   border: 3px solid #000000;
   box-shadow: 3px 3px 0 #000000;
   font-weight: 750;
-  background: rgb(74, 222, 128);
+  background: var(--color1);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -73,7 +82,7 @@ body {
   translate: 1.5px 1.5px;
   box-shadow: 1.5px 1.5px 0 #000000;
   /* background: rgb(26, 194, 255); */
-  background: rgb(250, 167, 216);
+  background: var(--color2);
 }
 
 .edit:active,
