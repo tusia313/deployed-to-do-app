@@ -3,9 +3,10 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const pool = require('./db')
-const {v4: uuidv4} = require('uuid')
+const { v4: uuidv4 } = require('uuid')
 
 app.use(cors())
+app.use(express.json()) // req.body
 
 // that is routing!
 // app.get('/todos', (req, res) => {
@@ -16,21 +17,23 @@ app.use(cors())
 app.get('/todos/:userEmail', async (req, res) => {
     const userEmail = req.params.userEmail
     try {
-        const todos = await pool.query('SELECT * FROM todos WHERE user_email=$1', [userEmail])
-        res.json(todos.rows)
+        const toDos = await pool.query('SELECT * FROM todos WHERE user_email=$1', [userEmail])
+        res.json(toDos.rows)
     } catch (error) {
         console.error(error)
     }
 })
 // create a new todo, todos is an endpoint; get request might be as well
-app.post('/todos', (req, res) => {
-    const {user_email, title, progress, date} = req.body
+app.post('/todos', async (req, res) => {
+    const { user_email, title, progress, date } = req.body
     console.log("To sa dane z server.js: ", req.body)
-    uuidv4()  // generuje nam unikalne id
+    const id = uuidv4()
+    // generuje nam unikalne id
     try {
-        pool.query(`INSERT INTO todos (id, user_email, title, progress, date) VALUES ($1, $2, $3, $4, $5)`
-        [id, user_email, title, progress, date]
+        const newToDo = await pool.query(`INSERT INTO todos (id, user_email, title, progress, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+            [id, user_email, title, progress, date]
         )
+        res.json(newToDo.rows)
     } catch (error) {
         console.error(error)
     }

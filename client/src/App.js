@@ -6,6 +6,7 @@ import TreeIcon from './components/TreeIcon'
 const App = () => {
   const userEmail = 'loskotmarta@gmail.com'
   const [tasks, setTasks] = useState()
+
   const getData = async () => {
     try {
       const response = await fetch(`http://localhost:8000/todos/${userEmail}`)
@@ -25,9 +26,9 @@ const App = () => {
     <div className="app">
       <div className='header-container'>
         <TreeIcon />
-        <ListHeader listName={"December tick list"} />
+        <ListHeader listName={"December tick list"} getData={getData} />
       </div>
-      {sortedTasks?.map((task) => <ListItem key={tasks.id} task={task} />)}
+      {sortedTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
     </div>
   )
 }

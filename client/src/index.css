@@ -1,8 +1,12 @@
 :root {
---color1: rgba(255, 95, 95, 1);   /* jasna, ciepła czerwień */
---color2: rgba(100, 200, 120, 1); /* miękka zieleń, taka „choinkowa” ale delikatna */
---color3: rgba(255, 240, 200, 1); /* kremowo-złoty odcień, zamiast intensywnego złota */
+  --color1: rgba(255, 95, 95, 1);
+  /* jasna, ciepła czerwień */
+  --color2: rgba(100, 200, 120, 1);
+  /* miękka zieleń, taka „choinkowa” ale delikatna */
+  --color3: rgba(255, 240, 200, 1);
+  /* kremowo-złoty odcień, zamiast intensywnego złota */
 }
+
 html,
 body {
   height: 100%;
@@ -56,7 +60,8 @@ body {
   justify-content: space-around;
   padding-right: 1rem;
 }
-.button-container button .create, 
+
+.button-container button .create,
 .button-container button.signout {
   background: var(--color3) !important;
 }
@@ -119,6 +124,16 @@ body {
 
 .list-item .info-container {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly
+
+}
+.list-item .info-container .tick {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.list-item .info-container .tick path {
+  fill: black;
 }
 
 .list-item .info-container .task-title {
@@ -127,20 +142,6 @@ body {
   /* overflow: hidden; */
   text-overflow: ellipsis;
   min-width: 0;
-}
-
-.list-item .info-container .tick {
-  transform: scale(0.5);
-  margin-right: 1rem;
-}
-
-.tick-1 {
-  fill: #fff;
-  opacity: 0;
-}
-
-.tick-2 {
-  fill: #231f20;
 }
 
 /* Modal */
@@ -161,7 +162,7 @@ body {
   position: relative;
   width: 30rem;
   padding: 2rem;
-  background: rgb(255, 102, 163);
+  background: var(--color3);
   border: 3px solid #000000;
   border-radius: 1rem;
   box-shadow: 0.8rem 0.8rem 0 #000000;
@@ -175,7 +176,7 @@ body {
   display: flex;
   justify-content: space-between;
   text-align: center;
- align-self: flex-start;
+  align-self: flex-start;
 }
 
 .modal .form-title-container button {
@@ -198,10 +199,11 @@ body {
 .modal form {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   height: 100%;
- 
+
 }
+
 .modal form label {
   margin: 0.2rem 0;
   font-weight: 600;
@@ -224,7 +226,7 @@ form input[type="submit"] {
   border: 3px solid #000000;
   box-shadow: 3px 3px 0 #000000;
   font-weight: 750;
-  background: rgb(255,255,255);
+  background: rgb(255, 255, 255);
   /* background: rgb(74, 222, 128);
   color: #fff; */
   cursor: pointer;

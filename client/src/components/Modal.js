@@ -1,17 +1,20 @@
 import { useState } from "react"
-const Modal = ({ mode, setShowModal, task }) => {
+const Modal = ({ mode, setShowModal, getData , task}) => {
+
   const editMode = mode === "edit" ? true : false
+
   const [data, setData] = useState({
-    user_email: editMode ? task.user_email : "bob.test@gmail.com",
+    user_email: editMode ? task.user_email : 'loskotmarta@gmail.com',
     title: editMode ? task.title : "",
     progress: editMode ? task.progress : 50,
-    date: editMode ? "" : new Date()
+    date: editMode ? "" : new Date().toISOString()
   })
+
   const handleChange = (e) => {
     // jakby to jest to samo co oddzielnie nazwac e.target.name i e.target.value
     const { name, value } = e.target
-    setData(data => ({
-      ...data,
+    setData(prev => ({
+      ...prev,
       // kochane algorytmy : teraz nadpisujemy obiekt data, ale tylko to co sie zmienilo
       [name]: value
     }))
@@ -20,14 +23,19 @@ const Modal = ({ mode, setShowModal, task }) => {
   const postData = async (e) => {
     e.preventDefault()
     try {
-      const response = fetch('http://localhost:8000/todos', {
+      const response = await fetch('http://localhost:8000/todos', {
         method : 'POST',
         headers: {
           'Content-Type' : 'application/json'
         },
-        body: JSON.stringify({data})
+        body: JSON.stringify(data)
         })
-        console.log("Response from posting data in Modal.js: ", response)
+        console.log("Response status: ", response.status)
+        if (response.status === 200) {
+          console.log("IT WORKED!")
+          setShowModal(false)
+          getData()
+        }
     } catch (error) {
       console.error("Error posting data: ", error)
     }
@@ -40,7 +48,7 @@ const Modal = ({ mode, setShowModal, task }) => {
           <h2>Let's {mode} some task!</h2>
           <button onClick={() => setShowModal(false)}>x</button>
         </div>
-        <form>
+        <form onSubmit={postData}>
           <input
             required
             maxLength={30}
@@ -49,7 +57,7 @@ const Modal = ({ mode, setShowModal, task }) => {
             value={data.title}
             onChange={handleChange}
           />
-          <label for="range">Drag to select Your current progress</label>
+          <label htmlFor="range">Drag to select Your current progress</label>
           <input
             type="range"
             name="progress"
@@ -65,7 +73,7 @@ const Modal = ({ mode, setShowModal, task }) => {
           <input
             className={mode}
             type="submit"
-            onClick = {editMode ? '' : postData}
+            
           />
         </form>
       </div>
