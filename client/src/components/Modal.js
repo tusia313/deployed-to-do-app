@@ -1,5 +1,5 @@
 import { useState } from "react"
-const Modal = ({ mode, setShowModal, getData , task}) => {
+const Modal = ({ mode, setShowModal, getData, task }) => {
 
   const editMode = mode === "edit" ? true : false
 
@@ -24,23 +24,40 @@ const Modal = ({ mode, setShowModal, getData , task}) => {
     e.preventDefault()
     try {
       const response = await fetch('http://localhost:8000/todos', {
-        method : 'POST',
+        method: 'POST',
         headers: {
-          'Content-Type' : 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-        })
-        console.log("Response status: ", response.status)
-        if (response.status === 200) {
-          console.log("IT WORKED!")
-          setShowModal(false)
-          getData()
-        }
+      })
+      console.log("Response status: ", response.status)
+      if (response.status === 200) {
+        console.log("IT WORKED!")
+        setShowModal(false)
+        getData()
+      }
     } catch (error) {
       console.error("Error posting data: ", error)
     }
   }
 
+  const editData = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      if (response.status === 200) {
+        console.log("Edit worked!")
+        setShowModal(false)
+        getData()
+      }
+    } catch (error) {
+      console.error("Error editing data from frontend: ", error)
+    }
+  }
   return (
     <div className="overlay">
       <div className="modal">
@@ -73,7 +90,7 @@ const Modal = ({ mode, setShowModal, getData , task}) => {
           <input
             className={mode}
             type="submit"
-            
+
           />
         </form>
       </div>
