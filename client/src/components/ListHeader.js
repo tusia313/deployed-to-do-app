@@ -7,12 +7,10 @@ const ListHeader = ({ listName, getData }) => {
   const signOut = () => {
     console.log("signing out")
   }
-
   return (
     <div className="list-header">
       {/* dzięki {} listName jest traktowane jako KOD a nie tekst */}
       <h1>{listName}</h1>
-
       <div className="button-container">
         <h2>{date}</h2>
         <button className="create" onClick={() => setShowModal(true)}>add new</button>

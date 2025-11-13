@@ -65,7 +65,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
           <h2>Let's {mode} some task!</h2>
           <button onClick={() => setShowModal(false)}>x</button>
         </div>
-        <form onSubmit={postData}>
+        <form>
           <input
             required
             maxLength={30}
@@ -90,7 +90,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
           <input
             className={mode}
             type="submit"
-
+            onClick = {editMode ? editData : postData}  
           />
         </form>
       </div>
