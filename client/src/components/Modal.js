@@ -6,8 +6,8 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
   const [data, setData] = useState({
     user_email: editMode ? task.user_email : 'loskotmarta@gmail.com',
     title: editMode ? task.title : "",
-    progress: editMode ? task.progress : 50,
-    date: editMode ? "" : new Date().toISOString()
+    progress: editMode ? Number(task.progress ?? 50) : 50,
+    date: editMode ? task?.date : new Date().toISOString()
   })
 
   const handleChange = (e) => {
@@ -16,12 +16,11 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
     setData(prev => ({
       ...prev,
       // kochane algorytmy : teraz nadpisujemy obiekt data, ale tylko to co sie zmienilo
-      [name]: value
+      [name] : name === task.progress ? Number(value) : value
     }))
     console.log("To sa teraz nasze dane: ", data)
   }
-  const postData = async (e) => {
-    e.preventDefault()
+  const postData = async () => {
     try {
       const response = await fetch('http://localhost:8000/todos', {
         method: 'POST',
@@ -31,7 +30,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
         body: JSON.stringify(data)
       })
       console.log("Response status: ", response.status)
-      if (response.status === 200) {
+      if (response.ok) {
         console.log("IT WORKED!")
         setShowModal(false)
         getData()
@@ -41,15 +40,14 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
     }
   }
 
-  const editData = async (e) => {
-    e.preventDefault()
+  const editData = async () => {
     try {
       const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
-      if (response.status === 200) {
+      if (response.ok) {
         console.log("Edit worked!")
         setShowModal(false)
         getData()
@@ -58,6 +56,16 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
       console.error("Error editing data from frontend: ", error)
     }
   }
+
+  const onSubmit = (e) => {
+      e.preventDefault()
+    if (editMode) {
+      editData()
+  } else {
+      postData()
+  }
+}
+
   return (
     <div className="overlay">
       <div className="modal">
@@ -65,7 +73,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
           <h2>Let's {mode} some task!</h2>
           <button onClick={() => setShowModal(false)}>x</button>
         </div>
-        <form>
+        <form onSubmit={onSubmit} className="form-container">
           <input
             required
             maxLength={30}
@@ -90,7 +98,6 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
           <input
             className={mode}
             type="submit"
-            onClick = {editMode ? editData : postData}  
           />
         </form>
       </div>

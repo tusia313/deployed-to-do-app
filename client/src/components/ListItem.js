@@ -9,7 +9,7 @@ const ListItem = ({ task, getData }) => {
     const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
     method: 'DELETE' }
     )
-    if (response.status === 200) {
+    if (response.ok) {
       getData()
     }
   } catch (error) {
