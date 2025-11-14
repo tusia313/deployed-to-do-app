@@ -6,8 +6,8 @@ import { useState } from "react"
 const ListItem = ({ task, getData }) => {
   const deleteIteam = async () => {
   try {
-    const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
-    method: 'DELETE' }
+    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${task.id}`, 
+      { method: 'DELETE' }
     )
     if (response.ok) {
       getData()
@@ -17,6 +17,7 @@ const ListItem = ({ task, getData }) => {
   }
 }
   const [showModal, setShowModal] = useState(false)
+  
   return (
     <li className="list-item">
       <div className="info-container">

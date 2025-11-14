@@ -6,7 +6,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
   const [data, setData] = useState({
     user_email: editMode ? task.user_email : 'loskotmarta@gmail.com',
     title: editMode ? task.title : "",
-    progress: editMode ? Number(task.progress ?? 50) : 50,
+    progress: editMode ? Number(task.progress) : 50,
     date: editMode ? task?.date : new Date().toISOString()
   })
 
@@ -16,13 +16,13 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
     setData(prev => ({
       ...prev,
       // kochane algorytmy : teraz nadpisujemy obiekt data, ale tylko to co sie zmienilo
-      [name] : name === task.progress ? Number(value) : value
+      [name] : name === 'progress' ? Number(value) : value
     }))
     console.log("To sa teraz nasze dane: ", data)
   }
   const postData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/todos', {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
 
   const editData = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${task.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -65,7 +65,6 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
       postData()
   }
 }
-
   return (
     <div className="overlay">
       <div className="modal">

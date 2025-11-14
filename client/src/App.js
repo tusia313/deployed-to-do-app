@@ -7,9 +7,10 @@ const App = () => {
   const userEmail = 'loskotmarta@gmail.com'
   const [tasks, setTasks] = useState()
 
+
   const getData = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/todos/${userEmail}`)
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`)
       const json = await response.json()
       setTasks(json)
     } catch (error) {
@@ -18,7 +19,7 @@ const App = () => {
   }
 
   useEffect(() => { getData() }, [])
-  console.log("Wyświetlam json: ", tasks)
+  
   //sort tasks by date
   const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date))
 
