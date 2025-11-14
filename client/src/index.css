@@ -1,11 +1,13 @@
 :root {
-  --color1: rgba(255, 95, 95, 1);
+  --color1: rgba(255, 95, 95, 0.98);
   /* jasna, ciepła czerwień */
   --color2: rgba(100, 200, 120, 1);
   /* miękka zieleń, taka „choinkowa” ale delikatna */
   --color3: rgba(255, 240, 200, 1);
   /* kremowo-złoty odcień, zamiast intensywnego złota */
-  ---color4: rgb(0, 0, 0);
+  --color4: rgb(0, 0, 0);
+  --color5: rgb(255, 255, 255);
+  --color6: rgb(128, 128, 128);
 }
 
 html,
@@ -21,13 +23,9 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-
-  /* 🎨 Beżowe tło */
   background-color: var(--color3);
-
   /* 🎄 Choinka jako pattern (zielona) */
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='1.5' stroke='rgba(100,200,120,1)' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M12 3l4 4l-2 1l4 4l-3 1l4 4h-14l4 -4l-3 -1l4 -4l-2 -1z'/><path d='M14 17v3a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-3'/></svg>");
-
   background-repeat: repeat;
   background-size: 230px 230px; /* 🔧 reguluj gęstość */
   background-position: 0 0;
@@ -170,10 +168,11 @@ body {
   position: relative;
   width: 30rem;
   padding: 2rem;
-  background: var(--color3);
+  background-color: var(--color1);
   border: 3px solid #000000;
   border-radius: 1rem;
   box-shadow: 0.8rem 0.8rem 0 #000000;
+  color: var(--color5);
 }
 
 .modal .form-title-container {
@@ -209,8 +208,9 @@ body {
 }
 
 .modal form label {
-  margin: 0.2rem 0;
+  margin: 0.4rem 0 0 0;
   font-weight: 600;
+  font-size: 1.4rem;
 }
 
 form input {

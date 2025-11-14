@@ -91,7 +91,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
             value={data.progress}
             onChange={handleChange}
             style={{
-              accentColor: "rgb(50, 200, 100)"
+              accentColor: "var(--color2)"
             }}
           />
           <input

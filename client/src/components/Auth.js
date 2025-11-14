@@ -1,8 +1,8 @@
 import { useState } from "react"
 const Auth = () => {
 
-    [error, setError] = useState(null)
-    [isLogIn, setLogIn] = useState(true)
+    const [error, setError] = useState(null)
+    const [isLogIn, setLogIn] = useState(true)
 
     const viewLogIn = (status) => {
         setError(null)
@@ -20,8 +20,16 @@ const Auth = () => {
                     {error && <p>{error}</p>}
                 </form>
                 <div className="auth-options">
-                    <button onClick = {() => viewLogIn(false)}>sign up</button>
-                    <button onClick = {() => viewLogIn(true)}>log in</button>
+                    <button
+                    type="button"
+                    onClick = {() => viewLogIn(false)}
+                    style={{backgroundColor : !isLogIn ? 'var(--color5)' : 'var(--color6)'}}
+                    >sign up</button>
+                    <button
+                    type="button"
+                    onClick = {() => viewLogIn(true)}
+                    style={{backgroundColor : !isLogIn ? 'var(--color6)' : 'var(--color5)'}}
+                    >log in</button>
                 </div>
             </div>
         </div>

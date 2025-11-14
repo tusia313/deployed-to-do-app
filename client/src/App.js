@@ -2,11 +2,12 @@ import ListHeader from './components/ListHeader'
 import ListItem from './components/ListItem'
 import { useEffect, useState } from 'react'
 import TreeIcon from './components/TreeIcon'
+import Auth from './components/Auth'
 
 const App = () => {
   const userEmail = 'loskotmarta@gmail.com'
   const [tasks, setTasks] = useState()
-
+  const authToken = false //localStorage.getItem("authToken")
 
   const getData = async () => {
     try {
@@ -19,17 +20,20 @@ const App = () => {
   }
 
   useEffect(() => { getData() }, [])
-  
   //sort tasks by date
   const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date))
 
   return (
     <div className="app">
+      {!authToken && <Auth />}
+      {authToken && 
+      <>
       <div className='header-container'>
         <TreeIcon />
-        <ListHeader listName={"December tick list"} getData={getData} />
+         <ListHeader listName={"December tick list"} getData={getData} />
       </div>
       {sortedTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
+      </>}
     </div>
   )
 }
