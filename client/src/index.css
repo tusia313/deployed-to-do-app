@@ -240,3 +240,49 @@ form input[type="submit"]:hover {
   box-shadow: 1.5px 1.5px 0 #000000;
   background: rgb(50, 200, 100);
 }
+
+/* Auth */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color2);
+  border: 3px solid #000000;
+  box-shadow: 0.8rem 0.8rem 0 #000000;
+  color: var(--color5);
+}
+.auth-container-box {
+  width: 30rem;
+  padding: 2rem;
+  overflow: hidden;
+}
+.auth-container h2 {
+  text-align: center;
+}
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+.auth-options {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.auth-options button {
+  padding: 0.5rem 1rem;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
+  font-weight: 750;
+  background: var(--color2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.auth-options button:hover {
+  translate: 1.5px 1.5px;
+  box-shadow: 1.5px 1.5px 0 #000000;
+} 
+.auth-options button:active {
+  translate: 3px 3px;
+  box-shadow: 0 0 0 #000000;
+} 
+
