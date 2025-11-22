@@ -62,4 +62,23 @@ app.delete('/todos/:id', async (req, res) => {
     }
 })
 
+// sign up
+app.post('/signup', async (req, res) => {
+    const { email, password } = req.body
+    try {
+
+    } catch (error) {
+        console.error(error)
+    }
+})
+
+// log in
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body
+    try {
+
+    } catch (error) {
+        console.error(error)
+    }
+})
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`))
