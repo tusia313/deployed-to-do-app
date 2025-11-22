@@ -4,6 +4,8 @@ const cors = require('cors')
 const app = express()
 const pool = require('./db')
 const { v4: uuidv4 } = require('uuid')
+const bcrypt = requires('bcrypt')
+const jwt = required('jsonwebtoken')
 
 app.use(cors())
 app.use(express.json()) // req.body
@@ -65,8 +67,13 @@ app.delete('/todos/:id', async (req, res) => {
 // sign up
 app.post('/signup', async (req, res) => {
     const { email, password } = req.body
+    const salt = bcrypt.genSaltSync(10)
+    const hashedPassword = bcrypt.hashSync(password, salt)
     try {
-
+        const signUp = await pool.query('INSERT INTO users (email, hassed_password) VALUES ($1, $2)', [email, hashedPassword])
+        // from documentation jwt
+        const token = jwt.sign({ email}, 'secretkey', { expiresIn: '1h' })
+        res.json({ message : 'User created successfully' })
     } catch (error) {
         console.error(error)
     }
