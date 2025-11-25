@@ -1,11 +1,16 @@
 import Modal from './Modal'
 import { useState } from 'react'
-const ListHeader = ({ listName, getData }) => {
+import { useCookies } from 'react-cookie'
+const ListHeader = ({ listName, getData, userEmail}) => {
+  const [ cookies, setCookie, removeCookie] = useCookies(null)
   const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
   const [showModal, setShowModal] = useState(false)
 
   const signOut = () => {
     console.log("signing out")
+    removeCookie('Email', { path: '/' })
+    removeCookie('AuthToken', { path: '/' })
+    window.location.reload()
   }
   return (
     <div className="list-header">
@@ -19,6 +24,7 @@ const ListHeader = ({ listName, getData }) => {
       {/* if showModal is true then we can see the whole modal */}
       {showModal && <Modal mode={'create'} setShowModal={setShowModal} getData={getData} />}
     </div>
+   
   )
 }
 export default ListHeader

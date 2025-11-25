@@ -33,13 +33,12 @@ body {
 }
 
 .app {
-  width: 50vw;
+  width: 70vw;
   margin: -0.5rem 0 0 -0.5rem;
   background: var(--color3);
   border: 3px solid #000000;
   box-shadow: 0.8rem 0.8rem 0 #000000;
   overflow: hidden;
-  /* Możesz to zmienić na clip-path, jeśli konieczne */
 }
 
 .app .header-container {
@@ -111,7 +110,6 @@ body {
 .list-header h1 {
   font-size: 2em;
   color: #333;
-  padding-left: 0.5rem;
   text-align: center;
 }
 
@@ -287,5 +285,18 @@ form input[type="submit"]:hover {
 .auth-options button:active {
   translate: 3px 3px;
   box-shadow: 0 0 0 #000000;
+}
+.copyright {
+  font-size: 0.8rem;
+  color: var(--color6);
+  margin: 1rem;
 } 
+.user-email {
+  float: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color4);
+  margin-left: 0.9rem;
+
+}
 

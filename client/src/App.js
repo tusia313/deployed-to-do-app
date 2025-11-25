@@ -37,8 +37,10 @@ const App = () => {
         <TreeIcon />
          <ListHeader listName={"December tick list"} getData={getData} />
       </div>
+         <p className = 'user-email'>Welcome back { userEmail } !</p>
       {sortedTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
       </>}
+      <p className = 'copyright'>© jestemdobra by Marta Łoskot</p>
     </div>
   )
 }
