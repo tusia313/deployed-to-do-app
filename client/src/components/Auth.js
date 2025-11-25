@@ -9,7 +9,7 @@ const Auth = () => {
     const [password, setPassword] = useState(null)
     const [confirmPassword, setConfirmPassword] = useState(null)
 
-    console.log(cookies)
+    console.log("auth cookies: ", cookies)
 
     const handleSubmit = async (e, endpoint) => {
         e.preventDefault()
@@ -27,8 +27,8 @@ const Auth = () => {
         if (data.detail) {
             setError(data.detail)
         } else {
-            setCookie('email', data.email)
-            setCookie('token', data.token)
+            setCookie('Email', data.email, { path: '/' })
+            setCookie('AuthToken', data.token, { path: '/' })
             window.location.reload()
         }
     }

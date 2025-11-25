@@ -63,22 +63,21 @@ app.delete('/todos/:id', async (req, res) => {
         console.error(error)
     }
 })
-
 // sign up
 app.post('/signup', async (req, res) => {
     const { email, password } = req.body
     const salt = bcrypt.genSaltSync(10)
     const hashedPassword = bcrypt.hashSync(password, salt)
     try {
-        const signUp = await pool.query('INSERT INTO users (email, hassed_password) VALUES ($1, $2)', [email, hashedPassword])
+        const signUp = await pool.query('INSERT INTO users (email, hashed_password) VALUES ($1, $2)', [email, hashedPassword])
         // from documentation jwt
-        const token = jwt.sign({ email}, 'secretkey', { expiresIn: '1h' })
+        const token = jwt.sign({ email }, 'secretkey', { expiresIn: '1h' })
         // from frontend we will store this token in local storage
         res.json({ email, token })
     } catch (error) {
         console.error(error)
         if (error) {
-            res.json({ detail : error.detail})
+            res.json({ detail: error.detail })
         }
     }
 })
@@ -87,7 +86,16 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body
     try {
-
+        const users = await pool.query('SELECT * FROM users WHERE email = $1', [email])
+        console.log("Users found: ", users.rows);
+        if (users.rows.length === 0) return res.json({ detail: 'User not found. Please sign up first.' })
+        const success = await bcrypt.compare(password, users.row[0].hasshed_password)
+        const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' })
+        if (success) {
+            res.json({ 'email': users.rows[0].email, 'token': token })
+        } else {
+            res.json({ detail: 'Incorrect password. Please try again.' })
+        }
     } catch (error) {
         console.error(error)
     }
