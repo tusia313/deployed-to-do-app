@@ -1,26 +1,26 @@
 # 🎄 TO-DO list (full-stack Christmas edition) 
 
 ## 🍬 What's it about?
-It's my final project in Annia's course, I developed a full-stack To-Do app using
-Node.js and Express.js for the backend structure and authorization. For the
-frontend I used React. 
-This project is unique in my portfolio, because it’s the only one where I
-incorporated SQL (PostgreSQL). Users can create, edit, and delete their to-do
-items, as well as sign up and log out of their accounts. I thoroughly enjoyed
-learning about tokens and cookies and how they are utilized in a real-world
-application.
+I'm excited to share my final project for Annia's course, where I developed a comprehensive To-Do app that showcases my full-stack development skills. I used Node.js and Express.js for the backend, ensuring robust structure and secure user authorization, while the dynamic frontend was crafted with React.
+
+What truly sets this project apart in my portfolio is the integration of SQL, specifically PostgreSQL. This feature allows users to seamlessly create, edit, and delete their to-do lists, along with easy sign-up and logout processes for their accounts. Diving into the intricacies of tokens and cookies was particularly rewarding, as I discovered their vital roles in real-world applications. This project represents not just my technical abilities, but also my enthusiasm for learning and applying advanced web development concepts.
+
 
 
 ## 🍬 First look 
-Nothing special, just a simple table with rows and interactive buttons. The date is updated daily. 
+Just a simple table with rows and interactive buttons; the date is updated daily.
 
 
 ![first page](./img/screen_1.png)
 
-The popup modal, when You can put Your task, looks like this:
+The pop-up modal for adding or editing a task appears as follows:
 
 
 ![first page](./img/screen_2.png)
+
+The authentication modal is designed for specific endpoints and features strong password hashing using the bcrypt package for enhanced security. The JWT package generates an authentication token that expires after one hour. And of course cookies :)
+
+![first page](./img/screen_3.png)
 
 ## 🍬 Technologies
 

@@ -3,15 +3,17 @@ import ListItem from './components/ListItem'
 import { useEffect, useState } from 'react'
 import TreeIcon from './components/TreeIcon'
 import Auth from './components/Auth'
+import { useCookies } from 'react-cookie'
 
 const App = () => {
-  const userEmail = 'loskotmarta@gmail.com'
+  const [cookies, setCookie, removeCookie] = useCookies(null)
+  const userEmail = cookies.Email
+  const authToken = cookies.AuthToken
   const [tasks, setTasks] = useState()
-  const authToken = false //localStorage.getItem("authToken")
 
   const getData = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/todos/${userEmail}`)
       const json = await response.json()
       setTasks(json)
     } catch (error) {

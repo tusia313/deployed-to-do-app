@@ -4,8 +4,8 @@ const cors = require('cors')
 const app = express()
 const pool = require('./db')
 const { v4: uuidv4 } = require('uuid')
-const bcrypt = requires('bcrypt')
-const jwt = required('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 app.use(cors())
 app.use(express.json()) // req.body
@@ -73,9 +73,13 @@ app.post('/signup', async (req, res) => {
         const signUp = await pool.query('INSERT INTO users (email, hassed_password) VALUES ($1, $2)', [email, hashedPassword])
         // from documentation jwt
         const token = jwt.sign({ email}, 'secretkey', { expiresIn: '1h' })
-        res.json({ message : 'User created successfully' })
+        // from frontend we will store this token in local storage
+        res.json({ email, token })
     } catch (error) {
         console.error(error)
+        if (error) {
+            res.json({ detail : error.detail})
+        }
     }
 })
 
