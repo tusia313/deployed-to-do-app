@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useCookies } from "react-cookie"
+import Modal from "./Modal"
 
 const Auth = () => {
     const [cookies, setCookie, removeCookie] = useCookies(null)
@@ -8,8 +9,6 @@ const Auth = () => {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
     const [confirmPassword, setConfirmPassword] = useState(null)
-
-    console.log("auth cookies: ", cookies)
 
     const handleSubmit = async (e, endpoint) => {
         e.preventDefault()
@@ -37,6 +36,7 @@ const Auth = () => {
         setError(null)
         setLogIn(status)
     }
+
     return (
         <div className="auth-container">
             <div className="auth-container-box">

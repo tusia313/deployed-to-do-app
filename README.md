@@ -1,35 +1,86 @@
-# 🎄 TO-DO list (full-stack Christmas edition) 
+# 🎄 TO-DO List — Full-Stack *Christmas Edition*  
 
-## 🍬 What's it about?
-I'm excited to share my final project for Annia's course, where I developed a comprehensive To-Do app that showcases my full-stack development skills. I used Node.js and Express.js for the backend, ensuring robust structure and secure user authorization, while the dynamic frontend was crafted with React.
+## ✨ About the Project  
+I'm excited to present my final project from Ania Kubow’s Full-Stack Developer Course — a complete end-to-end **To-Do application**, built to demonstrate practical, production-ready skills.
 
-What truly sets this project apart in my portfolio is the integration of SQL, specifically PostgreSQL. This feature allows users to seamlessly create, edit, and delete their to-do lists, along with easy sign-up and logout processes for their accounts. Diving into the intricacies of tokens and cookies was particularly rewarding, as I discovered their vital roles in real-world applications. This project represents not just my technical abilities, but also my enthusiasm for learning and applying advanced web development concepts.
+The backend is powered by **Node.js** and **Express.js**, handling structured routing, secure authorization, and all database operations. On the frontend, I used **React** to create a polished, responsive interface.
 
+A key element of this project is its connection to a real **PostgreSQL** database, allowing users to seamlessly manage their personal daily tasks. Working with **JWT**, **cookies**, and **password hashing (bcrypt)** gave me a strong foundation in modern authentication.
 
+This project reflects not only my technical abilities, but also my joy in learning, experimenting, and building things that feel fun — hence the Christmas edition 🎄✨  
 
-## 🍬 First look 
+---
+
+## ✨ Features  
+
+### 🔐 User Authentication
+- Secure sign-up and log-in flow  
+- Password hashing with **bcrypt**  
+- JWT token-based authentication (1-hour expiry)  
+- Cookies used for session handling  
+
+### 📝 Task Management
+- Create new tasks  
+- Edit existing tasks  
+- Delete tasks  
+- Tasks automatically sort by date  
+- Persistent storage using PostgreSQL  
+
+### 🎨 Frontend UI & UX
+- Fully responsive React interface  
+- Custom modals for editing tasks  
+- SVG icons and themed styling  
+- Smooth user experience  
+
+### 🗄️ Backend Logic
+- REST API built with Express.js  
+- Structured routing  
+- SQL queries for all CRUD operations  
+- Secure database access layer  
+
+---
+
+## 🍬 Kinsta Settings  
+I also had the opportunity to deploy my app on Kinsta servers.  
+Right now it's a bit too expensive for me — but the important thing is:  
+**I know exactly how to set it up and deploy it when the time comes!** 🚀
+
+---
+
+## 🍬 First Look  
+
 Just a simple table with rows and interactive buttons; the date is updated daily.
-
 
 ![first page](./img/screen_1.png)
 
-The pop-up modal for adding or editing a task appears as follows:
+A pop-up modal for adding or editing a task:
 
+![modal page](./img/screen_2.png)
 
-![first page](./img/screen_2.png)
+Secure authentication modals with strong password hashing and 1-hour JWT expiry:
 
-The authentication modal is designed for specific endpoints and features strong password hashing using the bcrypt package for enhanced security. The JWT package generates an authentication token that expires after one hour. And of course cookies :)
+![login page](./img/screen_3.png)
+![signup page](./img/screen_4.png)
 
-![first page](./img/screen_3.png)
+---
 
-## 🍬 Technologies
+## 🍬 Technologies  
 
-+ React!
-+ Node.js
-+ PostgresSQL
+- React  
+- Node.js  
+- Express.js  
+- PostgreSQL  
+- JWT  
+- bcrypt  
+- react-cookie  
 
-## 🍬 Inspiration
-This little project is part of an amazing Full Stack Developer Course created by  ♥ Ania Kubow ♥. Love this women, her sense of humor and ability to explain hard, code-things in a way that I finally understand. 🏆
+---
+
+## 🍬 Inspiration  
+This project was created as part of the amazing *Full Stack Developer Course* by  
+**♥ Ania Kubow ♥**.  
+I absolutely adore her humor and teaching style — she has a way of making complex coding concepts finally click.  
+
 
 ###
 
