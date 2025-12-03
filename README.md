@@ -9,8 +9,6 @@ A key element of this project is its connection to a real **PostgreSQL** databas
 
 This project reflects not only my technical abilities, but also my joy in learning, experimenting, and building things that feel fun — hence the Christmas edition 🎄✨  
 
----
-
 ## ✨ Features  
 
 ### 🔐 User Authentication
@@ -38,14 +36,12 @@ This project reflects not only my technical abilities, but also my joy in learni
 - SQL queries for all CRUD operations  
 - Secure database access layer  
 
----
 
 ## 🍬 Kinsta Settings  
 I also had the opportunity to deploy my app on Kinsta servers.  
 Right now it's a bit too expensive for me — but the important thing is:  
 **I know exactly how to set it up and deploy it when the time comes!** 🚀
 
----
 
 ## 🍬 First Look  
 
@@ -62,7 +58,6 @@ Secure authentication modals with strong password hashing and 1-hour JWT expiry:
 ![login page](./img/screen_3.png)
 ![signup page](./img/screen_4.png)
 
----
 
 ## 🍬 Technologies  
 
@@ -72,9 +67,8 @@ Secure authentication modals with strong password hashing and 1-hour JWT expiry:
 - PostgreSQL  
 - JWT  
 - bcrypt  
-- react-cookie  
+- cookies !
 
----
 
 ## 🍬 Inspiration  
 This project was created as part of the amazing *Full Stack Developer Course* by  
@@ -82,7 +76,8 @@ This project was created as part of the amazing *Full Stack Developer Course* by
 I absolutely adore her humor and teaching style — she has a way of making complex coding concepts finally click.  
 
 
-###
+---
+---
 
 
 
