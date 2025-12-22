@@ -47,16 +47,16 @@ Right now it's a bit too expensive for me — but the important thing is:
 
 Just a simple table with rows and interactive buttons; the date is updated daily.
 
-![first page](./img/screen_1.png)
+![screen_1](./img/screen_1.png)
 
 A pop-up modal for adding or editing a task:
 
-![modal page](./img/screen_2.png)
+![screen_2](./img/screen_2.png)
 
 Secure authentication modals with strong password hashing and 1-hour JWT expiry:
 
-![login page](./img/screen_3.png)
-![signup page](./img/screen_4.png)
+![screen_3](./img/screen_3.png)
+![screen_4](./img/screen_4.png)
 
 
 ## 🍬 Technologies  
@@ -78,7 +78,6 @@ I absolutely adore her humor and teaching style — she has a way of making comp
 
 ---
 ---
-
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
